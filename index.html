@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <title>Webcams.travel Sample</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <script>
+      const btn = document.getElementById("btn");
+
+      //「/data」にアクセスしてNode.jsからカメラ情報を渡してもらう
+      fetch("/data")
+        .then((data) => data.json())
+        .then((json) => getJson(json));
+
+      //取得したカメラ情報から静止画を画面に表示する
+      function getJson(json) {
+        json.forEach((list) => {
+          const img = document.createElement("img");
+
+          img.src = list.image.current.preview;
+          document.body.appendChild(img);
+        });
+      }
+    </script>
+  </body>
+</html>

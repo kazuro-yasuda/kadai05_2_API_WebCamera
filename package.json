@@ -1,0 +1,14 @@
+{
+  "name": "webcams-travel-sample",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "node webcam/server.js"
+  },
+  "dependencies": {
+    "express": "^4.16.4",
+    "request": "^2.88.0"
+  },
+  "engines": {
+    "node": "8.x"
+  }
+}
